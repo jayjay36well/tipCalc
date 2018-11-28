@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Total Bill calculator</title>
+  <!--https://www.w3schools.com/js/js_input_examples.asp-->
+  <div>
+      Bill: <input id="billInput" type="text" name="fname" value="Ex: 100€"><br>
+  Choose tip %:
+  <button id = "tip13" onclick="calculateBill(expense, 0.13, 0.25)">13%</button>
+  <button id = "tip15" onclick="calculateBill(expense, 0.15, 0.25)">15%</button>
+  <button id = "tip23" onclick="calculateBill(expense, 0.23, 0.25)">23%</button>
+  <p id = "totalBill"> </p>
+</div>
+</head>
+<body>
+<script>
+  const expense = parseFloat(document.getElementById("billInput").value);
+  
+  function calculateBill(total, tax = 0.13, tip = 0.15) {
+    console.log("Tax: " + tax);
+    totalBill = total + (total * tax) + (total * tip);
+    console.log("Total Bill: " + totalBill);
+    document.getElementById("totalBill").innerHTML = "Total bill is " + totalBill + " (tip of " + tax*100 + "% included).";
+     
+    return totalBill;
+  }
+  
+  //const totalBill = calculateBill(100, undefined, 0.25);
+  //console.log(totalBill);
+
+</script>
+</body>
+</html>
